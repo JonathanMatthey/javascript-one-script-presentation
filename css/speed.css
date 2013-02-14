@@ -165,6 +165,10 @@ pre{
     background-color: #222 !important;
 }
 
+.programmer-avatar{
+    float:right;
+}
+
 .logo{
     position: absolute;
     top:0;
@@ -172,6 +176,13 @@ pre{
     width:300px;
     height:100px;
     background-repeat: no-repeat;
+}
+
+p strong{
+    color:#aaa;
+}
+
+.fullwidth{
 }
 
 #logo-jquery{

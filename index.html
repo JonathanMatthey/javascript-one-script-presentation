@@ -10,6 +10,8 @@
     <meta name="description" content="Tools and Tips for increasing website speed for front-end (Drupal) developers." />
     <meta name="author" content="Evan Willhite" />
 
+    <link href="css/shCore.css" rel="stylesheet" />
+    <link href="css/shThemeRDark.css" rel="stylesheet" />
     <link href="css/speed.css" rel="stylesheet" />
 
     <link rel="shortcut icon" href="favicon.png" />
@@ -33,11 +35,107 @@
 
     <div id="jquery" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="logo-jquery" class="logo"></div>
-        <q>jquery.js</q>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
+        <h1>jquery.js</h1>
+        <p>A fast and concise js library - designed to change the way you write Javascript</p>
+        <!-- You also need to add some content to highlight, but that is covered elsewhere. -->
+        <pre class="brush: js">
+            // javascript
+            var container = document.getElementById('container')
+            
+            // jQuery
+            $("#container")
+        </pre>
+        <pre class="brush: js">
+            // javascript
+            var divs = document.getElementByTagName('div')
+            for ( i=0; i < divs.length; i++)
+              divs[i].style.display='none';
+            
+            // jQuery
+            $("div").hide();
+        </pre>
+        <pre class="brush: js">
+            $("button").click(function(){
+                $("p").html("HI EVERYBODY. HI DR NIK");
+            });
+        </pre>
+    </div>
+    <div id="jquery2" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
+        <div id="logo-jquery" class="logo"></div>
+        <h1>jquery.js</h1>
+        <pre class="brush: js">
+        // jQuery philosophy
+        $("find a html element").doSomething();
+        </pre>
+        <pre class="brush: js">
+        // jQuery selectors
+        $("tag")                  $("id")                    $(".class")
+        $("tag.class")            $("tag#id")          
+        $("tag[attr='value']")    $("tag:first-child()")     $('tag[attr$="endsWidth"]')        
+        </pre>
+        <pre class="brush: js">
+            $.ajax({
+              type: "POST",
+              url: "some.php",
+              data: { name: "John", location: "Boston" }
+            }).done(function( msg ) {
+              alert( "Data Saved: " + msg );
+            });    
+        </pre>
+    </div>
+
+    <div id="jquery3" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
+        <div id="logo-jquery" class="logo"></div>
+        <h1>jquery.js</h1>
+        <p>jQuery is GREAT !</p>
+        <p>but callback hell</p>
+        <pre class="brush: js">
+            fs.readdir(source, function(err, files) {
+              if (err) {
+                console.log('Error finding files: ' + err)
+              } else {
+                files.forEach(function(filename, fileIndex) {
+                  console.log(filename)
+                  gm(source + filename).size(function(err, values) {
+                    if (err) {
+                      console.log('Error identifying file size: ' + err)
+                    } else {
+                      console.log(filename + ' : ' + values)
+                      aspect = (values.width / values.height)
+                      widths.forEach(function(width, widthIndex) {
+                        height = Math.round(width / aspect)
+                        console.log('resizing ' + filename + 'to ' + height + 'x' + height)
+                        this.resize(width, height).write(d + 'w' + width + '_' + filename, function(err) {
+                          if (err) console.log('Error writing file: ' + err)
+                        })
+                      }.bind(this))
+                    }
+                  })
+                })
+              }
+            })
+        </pre>
+        <p>Tangled piles of jQuery selectors and callbacks</p>
+        <!-- WE NEED 
+        - abstraction
+        - decoupling UI from Data
+        - no more callbacks
+         -->
+    </div>
+    <div id="jquery4" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
+        <div id="logo-jquery" class="logo"></div>
+        <h1>jquery.js</h1>
+        <p>We need:</p>
+        <p> - A RESTful service based data layer</p>
+        <p> - Events ( to keep UI and data up-to-date )</p>
+        <p> - Templating Engine</p>
+        <p> - A solid routing system</p>
+        <p> - All the above - wrapped in lightweight</p>
+        <!-- WE NEED 
+        - abstraction
+        - decoupling UI from Data
+        - no more callbacks
+         -->
     </div>
     <!-- 
 
@@ -50,58 +148,64 @@
 
     <div id="backbonejs" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="logo-backbone" class="logo"></div>
-        <q>backbone.js</q>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
+        <h1>backbone.js</h1>
+        <p>Backbone.js gives structure to web applications by providing <strong>models</strong> with key value binding and custom events</p>
+        <p><strong>collections</strong> with a rich API of enumerable functions,</p>
+        <p><strong>views</strong> with declarative event handling,</p>
+        <p>and connects it all to your existing API over a RESTful JSON interface</p>
+        <img class="programmer-avatar" src="img/ashkenas.png"/>
+    </div>
+
+    <div id="backbonejs2" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
+        <div id="logo-backbone" class="logo"></div>
+        <h1>backbone.js</h1>
+        <p>Model-View-Controller</p>
+        <img class="fullwidth" src="img/mvc.png"/>
+
     </div>
 
     <div id="underscorejs" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="logo-underscore" class="logo"></div>
-        <q>underscore.js</q>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
+        <h1>underscore.js</h1>
         <p>...</p>
     </div>
 
     <div id="intermission1" class=" step  obvious" data-x="280" data-y="-5100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="code-wrapper">
-                <code>Exception up = new Exception("Something is really wrong.");<br/>
-                throw up;  //ha ha</code>
-                <code>//When I wrote this, only God and I understood what I was doing<br/>
-                //Now, God only knows</code>
-                <code>// I'm sorry.</code>
-                <code>// Autogenerated, do not edit. All changes will be undone.</code>
-                <code>#define TRUE FALSE //Happy debugging suckers</code>
-                <code>// sometimes I believe compiler ignores all my comments</code>
-                <code># To understand recursion, see the bottom of this file <br/>..<br/>..<br/>..<br/>..<br/>
-                # To understand recursion, see the top of this file</code>
-                <div id="intermission-title" >intermission</div>
-                <code>// somedev1 -  6/7/02 Adding temporary tracking of Login screen<br/>
-                    // somedev2 -  5/22/07 Temporary my ass</code>
-                <code>stop(); // Hammertime!</code>
-                <code>// drunk, fix later</code>
-                <code>// Magic. Do not touch.</code>
-                <code>return 1; # returns 1</code>
-                <code>// Replaces with spaces the braces in cases where braces in places cause stasis <br/>   $str = str_replace(array("\{","\}")," ",$str);
-                </code>
-                <code>long john; // silver
-                </code>
-                <code>const int TEN=10; // As if the value of 10 will fluctuate...</code>
-                <code>//This code sucks, you know it and I know it.  <br/>
-                        //Move on and call me an idiot later.</code>
-                <code>/* This is O(scary), but seems quick enough in practice. */</code>
-                <code>/////////////////////////////////////// this is a well commented line</code>
-                <code>/* IF DOLPHINS ARE SO SMART, HOW COME THEY LIVE IN IGLOOS? */</code>
-                <code>/**<br/>
-                 * Always returns true.<br/>
-                 */<br/>
-                public boolean isAvailable() {<br/>
-                    return false;<br/>
-                }</code>
-                <code>// The ratio of a circle's circumference to its diameter.  Remember to change<br/>
+            <code>Exception up = new Exception("Something is really wrong.");<br/>
+            throw up;  //ha ha</code>
+            <code>//When I wrote this, only God and I understood what I was doing<br/>
+            //Now, God only knows</code>
+            <code>// I'm sorry.</code>
+            <code>// Autogenerated, do not edit. All changes will be undone.</code>
+            <code>#define TRUE FALSE //Happy debugging suckers</code>
+            <code>// sometimes I believe compiler ignores all my comments</code>
+            <code># To understand recursion, see the bottom of this file <br/>..<br/>..<br/>..<br/>..<br/>
+            # To understand recursion, see the top of this file</code>
+            <div id="intermission-title" >intermission</div>
+            <code>// somedev1 -  6/7/02 Adding temporary tracking of Login screen<br/>
+                // somedev2 -  5/22/07 Temporary my ass</code>
+            <code>stop(); // Hammertime!</code>
+            <code>// drunk, fix later</code>
+            <code>// Magic. Do not touch.</code>
+            <code>return 1; # returns 1</code>
+            <code>// Replaces with spaces the braces in cases where braces in places cause stasis <br/>   $str = str_replace(array("\{","\}")," ",$str);
+            </code>
+            <code>long john; // silver
+            </code>
+            <code>const int TEN=10; // As if the value of 10 will fluctuate...</code>
+            <code>//This code sucks, you know it and I know it.  <br/>
+                    //Move on and call me an idiot later.</code>
+            <code>/* This is O(scary), but seems quick enough in practice. */</code>
+            <code>/////////////////////////////////////// this is a well commented line</code>
+            <code>/* IF DOLPHINS ARE SO SMART, HOW COME THEY LIVE IN IGLOOS? */</code>
+            <code>/**<br/>
+             * Always returns true.<br/>
+             */<br/>
+            public boolean isAvailable() {<br/>
+                return false;<br/>
+            }</code>
+            <code>// The ratio of a circle's circumference to its diameter.  Remember to change<br/>
 // this to 3.0 if you move to a site in Indiana.<br/>
 #define Pi                                      3.1415927</code>
         </div>
@@ -109,7 +213,7 @@
 
     <div id="nodejs" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="logo-nodejs" class="logo"></div>
-        <q>node</q>
+        <h1>node</h1>
         <p>...</p>
         <p>...</p>
         <p>...</p>
@@ -118,16 +222,17 @@
 
     <div id="npm" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="logo-npm" class="logo"></div>
-        <q>npm</q>
+        <h1>npm</h1>
         <p>...</p>
         <p>...</p>
         <p>...</p>
         <p>...</p>
+        <img src="img/ryan.png"/>
     </div>
     
     <div id="coffeescript" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="logo-coffeescript" class="logo"></div>
-        <q>coffeescript</q>
+        <h1>coffeescript</h1>
         <p>...</p>
         <p>...</p>
         <p>...</p>
@@ -135,7 +240,7 @@
     </div>
 
     <div id="d3js" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
-        <q>d3.js</q>
+        <h1>d3.js</h1>
         <p>...</p>
         <p>...</p>
         <p>...</p>
@@ -143,7 +248,7 @@
     </div>
 
     <div id="threejs" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
-        <q>three.js</q>
+        <h1>three.js</h1>
         <p>...</p>
         <p>...</p>
         <p>...</p>
@@ -151,7 +256,7 @@
     </div>
 
     <div id="more" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
-        <q>Much Much More</q>
+        <h1>Much Much More</h1>
         <p>...</p>
         <p>...</p>
         <p>...</p>
@@ -159,7 +264,7 @@
     </div>
 
     <div id="questions" class=" huge step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
-        <q>questions?</q>
+        <h1>questions?</h1>
         <img id="ralph" src="img/ralph.png" alt=""/>
     </div>
 
@@ -169,8 +274,16 @@
     </div> -->
 
 </div>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="js/impress.js"></script>
 <script src="js/speed-script.js"></script>
+<script type="text/javascript" src="js/shCore.js"></script>
+<script type="text/javascript" src="js/shAutoloader.js"></script>
+<script type="text/javascript" src="js/shLegacy.js"></script>
+<script type="text/javascript" src="js/shBrushJScript.js"></script>
+<script src="js/main.js"></script>
+
+ 
 </body>
 </html>
