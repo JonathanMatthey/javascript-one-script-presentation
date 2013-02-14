@@ -58,6 +58,7 @@ body {
     font-family: 'LeagueGothicRegular', sans-serif;
     min-height: 740px;
 
+
     background: rgb(215, 215, 215);
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(#111), to(#000));
     background: -webkit-radial-gradient(#111, #000);
@@ -140,6 +141,30 @@ a:focus {
     margin-top:30px;
 }
 
+p{
+    font-size:30px;
+    text-transform: none;
+}
+
+.comment{
+    color:green;
+}
+
+pre{
+
+}
+.syntaxhighlighter a, .syntaxhighlighter div, .syntaxhighlighter code, .syntaxhighlighter table, .syntaxhighlighter table td, .syntaxhighlighter table tr, .syntaxhighlighter table tbody, .syntaxhighlighter table thead, .syntaxhighlighter table caption, .syntaxhighlighter textarea{
+    font-size:14px!important;
+}
+
+.syntaxhighlighter .toolbar{
+    display: none!important;
+}
+
+.syntaxhighlighter {
+    background-color: #222 !important;
+}
+
 .logo{
     position: absolute;
     top:0;
@@ -154,14 +179,16 @@ a:focus {
     background-size:253px;
     width:253px;
     top:30px;
+    right:40px;
 }
 
 #logo-backbone{
     background-image:url(../img/logo-backbonejs.png);
-    width:150px;
-    background-size:150px;
-    height:150px;
-    top:-10px;
+    width:120px;
+    background-size:120px;
+    height:120px;
+    top:25px;
+    right:30px;
 }
 
 #logo-underscore{
