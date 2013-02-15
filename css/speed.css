@@ -31,6 +31,7 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -179,12 +180,23 @@ pre{
 }
 
 p strong{
-    color:#aaa;
+    color:#EDC900;
 }
 
 .fullwidth{
 }
 
+.floatright{
+    float:right;
+    position:relative;
+    margin-top:-250px;
+}
+
+#mvc2{
+    width:400px;
+    margin:0 auto;
+    margin-left:250px;
+}
 #logo-jquery{
     background-image:url(../img/logo-jquery.png);
     background-size:253px;

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=1024" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>Speeding Up Drupal</title>
+    <title>Javascript - One Script To Rule Them All</title>
 
     <meta name="description" content="Tools and Tips for increasing website speed for front-end (Drupal) developers." />
     <meta name="author" content="Evan Willhite" />
@@ -82,6 +82,25 @@
               alert( "Data Saved: " + msg );
             });    
         </pre>
+        <pre class="brush: js">
+            // Moving elements
+            .append()  .appendTo()  .before()  .after()
+
+            // Attributes
+            .css()  .attr()  .html()  .val()  .addClass()
+
+            // Events
+            .bind()  .trigger()  .unbind()  .live()  .click()
+
+            // Effects
+            .show()  .fadeOut()  .toggle()  .animate()
+
+            // Traversing
+            .find()  .is()  .prevAll()  .next()  .hadClass()
+
+            // Ajax
+            .get()  .getJSON()  .post()  .ajax()  .load()   
+        </pre>
     </div>
 
     <div id="jquery3" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
@@ -114,6 +133,28 @@
                 })
               }
             })
+        </pre>
+
+        <pre class="brush: js">
+        db.query('SELECTA...',function(){
+            db.query('SELECTB...',function(){
+                db.query('SELECTC...',function(){
+                    db.query('SELECTD...',function(){
+                        db.query('SELECTE...',function(){
+                            db.query('SELECTF...',function(){
+                                db.query('SELECTG...',function(){
+                                    db.query('SELECTH...',function(){
+                                        db.query('SELECTI...',function(){
+                                        ...
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
         </pre>
         <p>Tangled piles of jQuery selectors and callbacks</p>
         <!-- WE NEED 
@@ -149,10 +190,7 @@
     <div id="backbonejs" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="logo-backbone" class="logo"></div>
         <h1>backbone.js</h1>
-        <p>Backbone.js gives structure to web applications by providing <strong>models</strong> with key value binding and custom events</p>
-        <p><strong>collections</strong> with a rich API of enumerable functions,</p>
-        <p><strong>views</strong> with declarative event handling,</p>
-        <p>and connects it all to your existing API over a RESTful JSON interface</p>
+        <p>Backbone.js gives structure to web applications by providing <strong>models</strong> with key value binding and custom events, <strong>collections</strong> with a rich API of enumerable functions, <strong>views</strong> with declarative event handling, and connects it all to your existing API over a RESTful JSON interface</p>
         <img class="programmer-avatar" src="img/ashkenas.png"/>
     </div>
 
@@ -161,14 +199,103 @@
         <h1>backbone.js</h1>
         <p>Model-View-Controller</p>
         <img class="fullwidth" src="img/mvc.png"/>
+        <img id="mvc2" class="fullwidth" src="img/mvc2.png"/>
 
     </div>
+    <div id="backbonejs3" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
+        <div id="logo-backbone" class="logo"></div>
+        <h1>backbone.js</h1>
+<p><strong>Backbone Classes</strong></p>
+<p>Backbone.Events</p>
+<p>Backbone.Model</p>
+<p>Backbone.Collection</p>
+<p>Backbone.View</p>
+<p>Backbone.History</p>
+<p>Backbone.Router</p>
+        <img class="fullwidth floatright" src="img/backbone-archi.png"/>
+
+    </div>
+
+    <div id="backbonejs4" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
+        <div id="logo-backbone" class="logo"></div>
+        <h1>backbone.js</h1>
+
+<p>Model</p>
+        <pre class="brush: js">
+var Car = Backbone.Model.extend();
+
+var car = new Car({
+  name: 'DeLorean DMC-12'
+});
+
+alert( car.get('name') );
+        </pre>
+<p>Collection</p>
+
+        <pre class="brush: js">
+var ships = new Backbone.Collection;
+
+ships.on("add", function(ship) {
+  alert("Ahoy " + ship.get("name") + "!");
+});
+
+ships.add([
+  {name: "Flying Dutchman"},
+  {name: "Black Pearl"}
+]);
+        </pre>
+
+<p>View</p>
+        <pre class="brush: js">
+        var CarView = Backbone.View.extend({
+          initialize: function () {
+            this.model.on('change', this.render, this);
+          },
+
+          render: function () {
+            this.$el.html('Name: ' + this.model.get('name'));
+          }
+        });
+
+        var carView = new CarView({
+          model: car,
+          el: $('#car')
+        });
+
+        carView.render();
+        </pre>
+    </div>
+
 
     <div id="underscorejs" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="logo-underscore" class="logo"></div>
         <h1>underscore.js</h1>
-        <p>...</p>
+        <p>
+            Underscore is a JavaScript library which provides utility functions for common JavaScript tasks.</p>
+            <p> It is comparable to features provided by Ruby, but opts for a functional programming design instead of extending object prototypes. </p>
+        <pre class="brush: js">
+        _.each([1, 2, 3], alert);
+        => alerts each number in turn...
+        _.each({one : 1, two : 2, three : 3}, alert);
+        => alerts each number value in turn...
+        </pre>
+        <pre class="brush: js">
+        var stooges = [{name : 'moe', age : 40}, {name : 'larry', age : 50}, {name : 'curly', age : 60}];
+        _.pluck(stooges, 'name');
+        => ["moe", "larry", "curly"]
+        </pre>
+
+        <pre class="brush: js">
+        var compiled = _.template("hello: <%= name %>");
+        compiled({name : 'moe'});
+        => "hello: moe"
+
+        var list = "<% _.each(people, function(name) { %> <li><%= name %></li> <% }); %>";
+        _.template(list, {people : ['moe', 'curly', 'larry']});
+        => "< li >moe< /li >< li >curly< /li >< li >larry< /li >"
+        </pre>
     </div>
+
 
     <div id="intermission1" class=" step  obvious" data-x="280" data-y="-5100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="code-wrapper">
@@ -213,54 +340,149 @@
 
     <div id="nodejs" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="logo-nodejs" class="logo"></div>
-        <h1>node</h1>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
+        <h1>node.js</h1>
+        <p>high performance <strong>javascript library</strong> for intensive I/O operations. (like HTTP)</p>
+        <p><strong>single threaded</strong>, event oriented</p>
+        <p>built on Chrome's Javascript runtime V8</p>
+        <p><strong>lightweight</strong>, efficient, really fast</p>
+        <p><strong>isanely fast</strong></p>
+        <p>modular.  Excellent package manager: <strong>NPM</strong></p>
+
+        <img class="floatright" src="img/ryan.png"/>
+        <pre class="brush: js">
+        var http = require('http');
+ 
+        http.createServer(
+          function (request, response)
+          {
+            response.writeHead(200, {'Content-Type': 'text/plain'});
+            response.end('Hello World\n');
+          }
+        ).listen(8000);
+         
+        console.log('Server running at http://localhost:8000/');
+        </pre>
+        <img class="programmer-avatar" src="img/cost-of-io.png"/>
+    </div>
+
+    <div id="nodejs2" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
+        <div id="logo-nodejs" class="logo"></div>
+        <h1>node.js</h1>
+        <img  src="img/node-threads1.jpg"/>
+        <img  src="img/node-threads2.jpg"/>
+    </div>
+
+    <div id="nodejs3" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
+        <div id="logo-nodejs" class="logo"></div>
+        <h1>node.js</h1>
+        <img  src="img/blockingio.jpg"/>
+    </div>
+
+    <div id="nodejs4" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
+        <div id="logo-nodejs" class="logo"></div>
+        <h1>node.js</h1>
+        <img  src="img/node-threads3.png"/>
+        <img  src="img/node-threads4.png"/>
     </div>
 
     <div id="npm" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="logo-npm" class="logo"></div>
         <h1>npm</h1>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <img src="img/ryan.png"/>
+        <p>npm is a package manager for Node.js that is run through the command line.</p>
+        <p>It manages dependencies for an application.</p><p> It is the predominant package manager for Node.js</p>
+        <pre class="brush: js">
+            npm install less
+        </pre>
     </div>
     
     <div id="coffeescript" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <div id="logo-coffeescript" class="logo"></div>
         <h1>coffeescript</h1>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
+        <p>More of a new syntax than a new language</p>
+        <p>Borrows from Python and Ruby</p>
+        <pre class="brush: js">
+        // javascript
+        $(function() {
+          $("body").html("I've got a plan so cunning, you could stick a tail on it and call it a weasel!");
+        })
+        // coffeescript
+        $ ->
+            $("body").html "Hey Six Revision readers!"
+        </pre>
+
+        <pre class="brush: js">
+        // javascript
+        function say(something) {
+          alert(something);
+        }
+        // coffeescript
+        say = (something) ->
+            alert something
+        </pre>
+
+        <pre class="brush: js">
+        // coffeescript
+        math =
+          root:   Math.sqrt
+          square: square
+          cube:   (x) -> x * square x
+        // javascript
+        math = {
+          root: Math.sqrt,
+          square: square,
+          cube: function(x) {
+            return x * square(x);
+          }
+        };
+        </pre>
+
+        <pre class="brush: js">
+            // Inheretance made easy
+            class Animal
+                constructor: (@name) ->
+                
+                move: (meters) ->
+                    alert"#{@name}moved#{meters}m."
+
+            class Snake extends Animal
+                move: ->
+                    alert"Slithering..."
+                    super 5
+        </pre>
+        <img class="floatright" style="margin-top:-290px"src="img/ashkenas2.png"/>
     </div>
 
     <div id="d3js" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
         <h1>d3.js</h1>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-    </div>
+        <img class="programmer-avatar" src="img/mikebostock.png"/>
+        <p>Data-Driven Documents (by Michael Bostock)
 
-    <div id="threejs" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
-        <h1>three.js</h1>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-    </div>
+            <p>– It's a library for manipulating HTML based on data.</p>
+            <p>– Free, lightweight JavaScript library, it’s like jQuery and others javascript framework</p>
+            <p>– D3 allows you to bind arbitrary data to a Document Object Model (DOM), and then apply data-driven transformations to the document.</p>
+            <p>– It’s a new visualization library to build visualizations in SVG.</p>
+            <p>– It can be used to visualise data using HTML or SVG, and supports interactivity and animations.</p>
+        <pre class="brush: js">
 
-    <div id="more" class=" step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
-        <h1>Much Much More</h1>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
+  d3.selectAll("p").transition().style("color", "pink");
+
+        </pre>
+        <pre class="brush: js">
+    // a Bar Graph
+    var data = [63, 39, 31, 53, 25, 32, 175, 69, 51],
+    x = d3.scale.linear()…, // data ↦ width
+    y = d3.scale.ordinal()…; // index ↦ y
+
+    // Data ↦ Element
+    var rect = svg.selectAll("rect")
+        .data(data);
+
+    // Data Attributes ↦ Element Attributes
+    rect.enter().append("svg:rect")
+        .attr("width", function(d, i) { return x(d); })
+        .attr("y", function(d, i) { return y(i); })
+        .attr("height", y.rangeBand());
+        </pre>
     </div>
 
     <div id="questions" class=" huge step  hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
